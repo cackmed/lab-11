@@ -7,6 +7,17 @@ const mongoose = require('mongoose');
 const Trip = require('../lib/models/Trips');
 const Itinerary = require('../lib/models/Itinerary');
 
+jest.mock('../lib/services/weather.js', () => ({
+  getWOEID() {
+    return Promise.resolve('12345');
+  },
+  getWeather() {
+    return Promise.resolve({
+      min_temp: 5
+    });
+  }
+}));
+
 describe('app routes', () => {
   beforeAll(() => {
     connect();
@@ -21,11 +32,13 @@ describe('app routes', () => {
   beforeEach(async() => {
     trip = await Trip.create(
       { location: 'Portland', duration: 5, modeOfTransportation: 'plane' });
+
     itinerary = await Itinerary.create(
       {
         tripsId: trip._id,
-        plannedDate: new Date(),
-        plan: 'See the london eye'
+        plannedDate: new Date('2020-04-11'),
+        plan: 'See the london eye',
+        woeid: '2487956'
       },
     );
   });
@@ -51,18 +64,14 @@ describe('app routes', () => {
   });
 
   it('gets all trips', async() => {
-    const trips = await Trip.create([
-      { location: 'Portland', duration: 5, modeOfTransportation: 'plane' },
-      { location: 'Ashland', duration: 4, modeOfTransportation: 'car' },
-      { location: 'Hokaido', duration: 22, modeOfTransportation: 'boat' }
-    ]);
+
 
     return request(app)
       .get('/api/v1/trips')
       .then(res => {
-        trips.forEach(trip => {
-          expect(res.body).toContainEqual(JSON.parse(JSON.stringify(trip)));
-        });
+        
+        expect(res.body).toContainEqual(JSON.parse(JSON.stringify(trip)));
+        
       });
   });
   it('gets a trip by id', async() => {
@@ -107,11 +116,42 @@ describe('app routes', () => {
           modeOfTransportation: 'plane',
           __v: trip.__v
         });
-
-        return Itinerary.find();
+      });
+  });
+  it.skip('creates an itinerary item', () => {
+    return request(app)
+      .post(`/api/v1/trips/${trip._id}/item`)
+      .send({
+        tripsId: trip._id,
+        plannedDate: new Date('2020-04-11T00:00:00.000Z'),
+        plan: 'See the london eye',
+        lat: 37.777119,
+        long: -122.41964
       })
-      .then(itinerary => {
-        expect(itinerary).toHaveLength(0);
+      .then(res => {
+        expect(res.body.itinerary).toEqual([{
+          _id: itinerary._id,
+          tripsId: trip._id,
+          plannedDate: '2020-04-11T00:00:00.000Z',
+          plan: 'See the london eye',
+          woeid: '2487956',
+          __v: 0
+        }, {
+          _id: itinerary._id,
+          tripsId: trip._id,
+          plannedDate: '2020-04-11T00:00:00.000Z',
+          plan: 'See the london eye',
+          woeid: '12345',
+          __v: 0
+        }]);
+      });
+  });
+  it('can delete an itinerary item', () => {
+    return request(app)
+      .delete(`/api/v1/trips/${trip._id}/item/${itinerary._id}`)
+      .then(res => {
+        expect(res.body.itinerary).toHaveLength(0);
       });
   });
 });
+
