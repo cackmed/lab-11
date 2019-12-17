@@ -58,22 +58,18 @@ describe('Itinerary routes', () => {
       {
         tripsId: trip._id,
         plannedDate: new Date(),
-        plan: 'See the london eye'
       },
       {
         tripsId: trip._id,
         plannedDate: new Date(),
-        plan: 'Take a picture of Big Ben'
       },
       {
         tripsId: trip._id,
         plannedDate: new Date(),
-        plan: 'Mess with Locals'
       },
       {
         tripsId: trip._id,
         plannedDate: new Date(),
-        plan: 'Get a drink'
       },
     ]);
   
@@ -92,7 +88,7 @@ describe('Itinerary routes', () => {
       .then(res => {
         expect(res.body).toEqual({
           _id: expect.any(String),
-          tripId: trip._id.toString(),
+          tripsId: trip._id.toString(),
           plannedDate: expect.any(String),
           plan: 'See the london eye',
           __v: 0
@@ -109,7 +105,7 @@ describe('Itinerary routes', () => {
       .then(res => {
         expect(res.body).toEqual({
           _id: expect.any(String),
-          tripId: trip._id.toString(),
+          tripsId: trip._id.toString(),
           plannedDate: expect.any(String),
           plan: 'See the royal palace',
           __v: 0
@@ -122,7 +118,7 @@ describe('Itinerary routes', () => {
       .then(res => {
         expect(res.body).toEqual({
           _id: expect.any(String),
-          tripId: trip._id.toString(),
+          tripsId: trip._id.toString(),
           plannedDate: expect.any(String),
           plan: 'See the london eye',
           __v: 0

@@ -50,7 +50,7 @@ describe('app routes', () => {
       });
   });
 
-  it('gets all recipes', async() => {
+  it('gets all trips', async() => {
     const trips = await Trip.create([
       { location: 'Portland', duration: 5, modeOfTransportation: 'plane' },
       { location: 'Ashland', duration: 4, modeOfTransportation: 'car' },
@@ -61,11 +61,7 @@ describe('app routes', () => {
       .get('/api/v1/trips')
       .then(res => {
         trips.forEach(trip => {
-          expect(res.body).toContainEqual({
-            _id: trip._id.toString(),
-            location: trip.location,
-            modeOfTransportation: trip.modeOfTransportation
-          });
+          expect(res.body).toContainEqual(JSON.parse(JSON.stringify(trip)));
         });
       });
   });
@@ -75,9 +71,10 @@ describe('app routes', () => {
       .then(res => {
         expect(res.body).toMatchObject({
           _id: trip._id.toString(),
-          location: trip.location,
+          location: 'Portland',
+          duration: 5,
           modeOfTransportation: 'plane',
-          itinerary: JSON.parse(JSON.stringify(itinerary)),
+          itinerary: JSON.parse(JSON.stringify([itinerary])),
           __v: trip.__v
         });
       });
@@ -85,7 +82,7 @@ describe('app routes', () => {
       
  
 
-  it('updates a recipe by id', async() => {
+  it('updates a trip by id', async() => {
     return request(app)
       .patch(`/api/v1/trips/${trip._id}`)
       .send({ location: 'Brussels' })
@@ -99,7 +96,7 @@ describe('app routes', () => {
         });
       });
   });
-  it('can delete a recipe with DELETE', async() => {
+  it('can delete a trip with DELETE', async() => {
     return request(app)
       .delete(`/api/v1/trips/${trip._id}`)
       .then(res => {
