@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1576544391184" clover="3.2.0">
-  <project timestamp="1576544391184" name="All files">
-    <metrics statements="80" coveredstatements="70" conditionals="7" coveredconditionals="1" methods="26" coveredmethods="23" elements="113" coveredelements="94" complexity="0" loc="80" ncloc="80" packages="5" files="8" classes="8"/>
+<coverage generated="1576547921877" clover="3.2.0">
+  <project timestamp="1576547921877" name="All files">
+    <metrics statements="103" coveredstatements="81" conditionals="7" coveredconditionals="1" methods="34" coveredmethods="23" elements="144" coveredelements="105" complexity="0" loc="103" ncloc="103" packages="6" files="11" classes="11"/>
     <package name="lib">
       <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="app.js" path="/Users/LifetimeOpt/alchemy/career-track/lab-11/lib/app.js">
@@ -17,7 +17,7 @@
       </file>
     </package>
     <package name="lib.middleware">
-      <metrics statements="12" coveredstatements="3" conditionals="6" coveredconditionals="0" methods="2" coveredmethods="0"/>
+      <metrics statements="17" coveredstatements="5" conditionals="6" coveredconditionals="0" methods="3" coveredmethods="0"/>
       <file name="error.js" path="/Users/LifetimeOpt/alchemy/career-track/lab-11/lib/middleware/error.js">
         <metrics statements="8" coveredstatements="2" conditionals="6" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="1" count="2" type="stmt"/>
@@ -36,14 +36,27 @@
         <line num="3" count="0" type="stmt"/>
         <line num="4" count="0" type="stmt"/>
       </file>
+      <file name="woeId.js" path="/Users/LifetimeOpt/alchemy/career-track/lab-11/lib/middleware/woeId.js">
+        <metrics statements="5" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+      </file>
     </package>
     <package name="lib.models">
-      <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <metrics statements="12" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
       <file name="Itinerary.js" path="/Users/LifetimeOpt/alchemy/career-track/lab-11/lib/models/Itinerary.js">
-        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <metrics statements="8" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
         <line num="1" count="3" type="stmt"/>
-        <line num="3" count="3" type="stmt"/>
-        <line num="21" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="31" count="3" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="46" count="3" type="stmt"/>
       </file>
       <file name="Trips.js" path="/Users/LifetimeOpt/alchemy/career-track/lab-11/lib/models/Trips.js">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -54,29 +67,30 @@
       </file>
     </package>
     <package name="lib.routes">
-      <metrics statements="41" coveredstatements="41" conditionals="0" coveredconditionals="0" methods="20" coveredmethods="20"/>
+      <metrics statements="42" coveredstatements="42" conditionals="0" coveredconditionals="0" methods="20" coveredmethods="20"/>
       <file name="itinerary.js" path="/Users/LifetimeOpt/alchemy/career-track/lab-11/lib/routes/itinerary.js">
-        <metrics statements="20" coveredstatements="20" conditionals="0" coveredconditionals="0" methods="10" coveredmethods="10"/>
+        <metrics statements="21" coveredstatements="21" conditionals="0" coveredconditionals="0" methods="10" coveredmethods="10"/>
         <line num="1" count="2" type="stmt"/>
         <line num="2" count="2" type="stmt"/>
         <line num="3" count="2" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="7" count="2" type="stmt"/>
-        <line num="8" count="1" type="stmt"/>
-        <line num="10" count="1" type="stmt"/>
-        <line num="13" count="2" type="stmt"/>
-        <line num="14" count="1" type="stmt"/>
-        <line num="17" count="1" type="stmt"/>
-        <line num="20" count="2" type="stmt"/>
-        <line num="21" count="1" type="stmt"/>
-        <line num="24" count="1" type="stmt"/>
-        <line num="27" count="2" type="stmt"/>
-        <line num="28" count="1" type="stmt"/>
-        <line num="30" count="1" type="stmt"/>
-        <line num="33" count="2" type="stmt"/>
-        <line num="34" count="1" type="stmt"/>
-        <line num="36" count="1" type="stmt"/>
-        <line num="38" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="28" count="2" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="34" count="2" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="39" count="2" type="stmt"/>
       </file>
       <file name="trips.js" path="/Users/LifetimeOpt/alchemy/career-track/lab-11/lib/routes/trips.js">
         <metrics statements="21" coveredstatements="21" conditionals="0" coveredconditionals="0" methods="10" coveredmethods="10"/>
@@ -101,6 +115,27 @@
         <line num="35" count="1" type="stmt"/>
         <line num="37" count="1" type="stmt"/>
         <line num="39" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="lib.services">
+      <metrics statements="12" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
+      <file name="getwoeId.js" path="/Users/LifetimeOpt/alchemy/career-track/lab-11/lib/services/getwoeId.js">
+        <metrics statements="6" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+      </file>
+      <file name="weather.js" path="/Users/LifetimeOpt/alchemy/career-track/lab-11/lib/services/weather.js">
+        <metrics statements="6" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
       </file>
     </package>
     <package name="lib.utils">
