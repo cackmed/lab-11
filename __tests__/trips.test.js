@@ -118,32 +118,24 @@ describe('app routes', () => {
         });
       });
   });
-  it.skip('creates an itinerary item', () => {
+  it('creates an itinerary item', () => {
     return request(app)
       .post(`/api/v1/trips/${trip._id}/item`)
       .send({
         tripsId: trip._id,
-        plannedDate: new Date('2020-04-11T00:00:00.000Z'),
+        plannedDate: new Date('2020-04-11'),
         plan: 'See the london eye',
-        lat: 37.777119,
-        long: -122.41964
+        woeid: '2487956'
       })
       .then(res => {
-        expect(res.body.itinerary).toEqual([{
-          _id: itinerary._id,
-          tripsId: trip._id,
+        expect(res.body.itinerary).toContainEqual({
+          _id: expect.any(String),
+          tripsId: expect.any(String),
           plannedDate: '2020-04-11T00:00:00.000Z',
           plan: 'See the london eye',
           woeid: '2487956',
           __v: 0
-        }, {
-          _id: itinerary._id,
-          tripsId: trip._id,
-          plannedDate: '2020-04-11T00:00:00.000Z',
-          plan: 'See the london eye',
-          woeid: '12345',
-          __v: 0
-        }]);
+        });
       });
   });
   it('can delete an itinerary item', () => {
